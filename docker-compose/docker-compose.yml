@@ -1,7 +1,7 @@
 version: '2'
 services:
   jenkins:
-    image: jenkins:latest
+    image: dagman62/jenkins-docker
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -11,7 +11,7 @@ services:
       - /var/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
   postgres:
-    image: postgres:9.6
+    image: postgres
     networks:
       - jenkins
     environment:
@@ -20,7 +20,7 @@ services:
     volumes:
       - /var/postgres-data:/var/lib/postgresql/data
   sonarqube:
-    image: sonarqube:lts
+    image: sonarqube
     ports:
       - "9000:9000"
       - "9092:9092"
