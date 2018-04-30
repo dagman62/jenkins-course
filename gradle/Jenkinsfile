@@ -1,4 +1,7 @@
 node {
+    environment {
+      JAVA_HOME = '/usr'
+    }
     stage('prep') {
         git url: 'https://github.com/dagman62/gs-gradle.git'
     }
