@@ -7,7 +7,7 @@ node {
     }
 
     stage('build') {
-        sh 'cd complete && gradle build'
+        sh 'cd complete && ./gradlew build'
     }
 
     stage('sonar-scanner') {
