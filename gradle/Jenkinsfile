@@ -4,9 +4,7 @@ node {
     }
 
     stage('build') {
-      ${env.HOME}/.gradle:/home/gradle/.gradle {
         sh 'cd complete && gradle build'
-      }
     }
 
     stage('sonar-scanner') {
