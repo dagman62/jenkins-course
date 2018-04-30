@@ -1,5 +1,5 @@
 node {
-    def myGradleContainer = docker.image('dagman62/gradle:jdk8')
+    def myGradleContainer = docker.image('dagman62/gradle')
     myGradleContainer.pull()
 
     stage('prep') {
@@ -8,7 +8,7 @@ node {
 
     stage('build') {
       myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
-        sh 'cd complete && gradle --stacktrace --debug build'
+        sh 'cd complete && gradle build'
       }
     }
 
